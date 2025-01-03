@@ -16,12 +16,13 @@ public class EchoClient {
             Bootstrap b = new Bootstrap();
             b.group(group)
                     .channel(NioSocketChannel.class)
-                    .handler(new ChannelInitializer<SocketChannel>() {
-                        @Override
-                        public void initChannel(SocketChannel ch) {
-                            ch.pipeline().addLast(new EchoClientHandler());
-                        }
-                    });
+                    .handler(
+                            new ChannelInitializer<SocketChannel>() {
+                                @Override
+                                public void initChannel(SocketChannel ch) {
+                                    ch.pipeline().addLast(new EchoClientHandler());
+                                }
+                            });
             ChannelFuture f = b.connect("localhost", 8080).sync();
             f.channel().closeFuture().sync();
         } finally {

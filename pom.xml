@@ -11,12 +11,14 @@
     <modules>
         <module>bio-socket</module>
         <module>netty-starter</module>
+        <module>nio-socket</module>
     </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <netty-all.version>4.1.68.Final</netty-all.version>
     </properties>
 
     <dependencyManagement>
@@ -24,9 +26,16 @@
             <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
-                <version>4.1.68.Final</version> <!-- 使用最新版本 -->
+                <version>${netty-all.version}</version> <!-- 使用最新版本 -->
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
